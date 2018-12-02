@@ -11,7 +11,13 @@ namespace EntityProcedureCF
         public DbSet<Employee> Employees { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>().MapToStoredProcedures();
+            modelBuilder.Entity<Employee>().MapToStoredProcedures
+                (p => p.Insert(x => x.HasName("EmployeeInsert")
+                .Parameter(a => a.name, "EmployeeName")
+                .Parameter(a => a.gender, "EmployeeGender")
+                .Parameter(a => a.salary, "EmployeeSalary"))
+                .Delete(y=> y.HasName("EmployeeDelete"))
+                .Update(z=> z.HasName("EmployeeUpdate")));
             base.OnModelCreating(modelBuilder);
         }
     }

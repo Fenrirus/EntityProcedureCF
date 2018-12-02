@@ -13,7 +13,7 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="ObjectDataSource1" DataKeyNames="ID">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
+                    <asp:BoundField DataField="ID" ReadOnly="true" HeaderText="ID" SortExpression="ID" />
                     <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
                     <asp:BoundField DataField="gender" HeaderText="gender" SortExpression="gender" />
                     <asp:BoundField DataField="salary" HeaderText="salary" SortExpression="salary" />
